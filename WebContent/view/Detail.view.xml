@@ -1,0 +1,160 @@
+<core:View controllerName="sap.ui.demo.myFiori.view.Detail"
+	xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page title="Müşteri Bilgileri">
+	<Text text=""> </Text>
+	<l:Grid
+		defaultSpan="L12 M12 S12"
+		width="auto">
+		<l:content>
+			<f:Form id="formid"
+				minWidth="1024"
+				maxContainerCols="2"
+				editable="true">
+				
+				<f:layout>
+					<f:ResponsiveGridLayout
+						labelSpanL="3"
+						labelSpanM="3"
+						emptySpanL="4"
+						emptySpanM="4"
+						columnsL="1"
+						columnsM="1" />
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Sipariş No">
+								<f:fields>
+									<Text text="{EmployeeID}"> </Text>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Ad Soyad">
+								<f:fields>
+									<Text text="{FirstName} {LastName}"> </Text>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Telefon No">
+									<f:fields>
+									<Text text="{HomePhone}"> </Text>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Para Kart No">
+									<f:fields>
+									<Text text="{PostalCode}"> </Text>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Fatura Adresi">
+								<f:fields>
+									<Select width="100%" id="country" selectedKey="{Address}">
+										<items>
+											<core:Item text="{Address}" key="{Address}"/>
+											
+										</items>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="">
+							<RadioButton groupName="GroupA" text="Teslimat Adresi, Fatura adresiyle aynıdır" selected="false" />
+							</f:FormElement>
+							<f:FormElement label="Teslimat Adresi">
+								<f:fields>
+									<Select width="100%" id="country3" selectedKey="{Address}">
+										<items>
+									<core:Item text="{Address}" key="{Address}"/>
+										</items>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Not">
+								<f:fields>
+									<Input value="{Notes}" />
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+	
+	
+	<Table id="idProductsTable"
+		inset="false"
+		items="{
+			path: '/ProductCollection',
+			sorter: {
+				path: 'Name'
+			}
+		}">
+		
+		<columns>
+			<Column
+			minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Artikel No" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Tanım" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Adet" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="İstenen Teslim Tarihi" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Nakliye Tarihi" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Montaj Tarihi" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier
+						title=" "
+						text=" "/>
+					<Text
+						text=" " />
+					<Text
+						text=" " />
+					<ObjectNumber
+						number=" "
+						unit=" "/>
+					<ObjectNumber
+							number=""
+							unit=" " />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	</l:content>
+	</l:Grid>	
+	<footer>
+			<Bar>
+				<contentRight>
+					<Button id="yazdirid" text="Yazdır" press="handlePrintPress" type="Emphasized"/>
+					<Button id="siparisid" text="Siparişi Değiştir" press="handleEditPress" type="Emphasized"/>
+				</contentRight>
+			</Bar>
+		</footer>
+
+	</Page>
+</core:View>

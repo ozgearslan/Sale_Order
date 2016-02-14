@@ -1,0 +1,33 @@
+<core:View controllerName="sap.ui.demo.myFiori.view.Master"
+	xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Page title="Müşteri İsmi" >
+	
+	<subHeader>
+			<Toolbar>
+				<SearchField width="100%" search="onSearch" />
+			</Toolbar>
+		</subHeader>
+		<List
+		items="{/Employees}" id="listid">
+		
+		<items>
+			<ObjectListItem
+				title="Satış Sirariş No:{EmployeeID}"
+				type="Active"
+				press="onListItemPress"
+				number=" "
+				numberUnit=" ">
+				<firstStatus>
+					<ObjectStatus
+						text=" "
+						 />
+				</firstStatus>
+				<attributes>
+					<ObjectAttribute text="Müşteri İsmi: {FirstName} {LastName}" />
+					<ObjectAttribute text="Müşteri Telefon No: {HomePhone}" />
+				</attributes>
+			</ObjectListItem>
+		</items>
+	</List>
+	</Page>
+</core:View>
